@@ -1,11 +1,14 @@
 import json
 from restkit import Resource, BasicAuth, Connection, request
 from socketpool import ConnectionPool
- 
+import sys
+
 pool = ConnectionPool(factory=Connection)
 serverurl="https://api.github.com"
  
-# Add your username and password here, or prompt for them
+# Pass the username and password to the command line as arguements
+user = sys.argv[1]
+password = sys.argv[2]
 auth=BasicAuth(user, password)
  
 # Use your basic auth to request a token
